@@ -53,8 +53,8 @@ int main()
         entry = readdir(dir);
     }
     closedir(dir);
-    folders = alphabaticalSorting(folders);   // sorting
-    files = alphabaticalSorting(files, true); // sorting
+    folders = alphabaticalSorting(folders);   // sorting (by defualt false)
+    files = alphabaticalSorting(files, true); // sorting (adding true to make it reverse)
     for (string x : folders)                  // printing
     {
         cout << "Folders: " << x << endl;
