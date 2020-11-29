@@ -34,16 +34,17 @@ int main()
     const char *PATH = "/home/ghandour/Desktop/"; // path here
     DIR *dir = opendir(PATH);
     struct dirent *entry = readdir(dir);
+
     while (entry != NULL)
     {
-        if (entry->d_type == DT_DIR)
+        if (entry->d_type == DT_DIR) // filter folders
         {
             // cout << "Folders: " << entry->d_name << endl; // test
             bridge = entry->d_name;
             transform(bridge.begin(), bridge.end(), bridge.begin(), ::tolower); // to make the string unsenstive
             folders.push_back(bridge);
         }
-        if (entry->d_type == DT_REG)
+        if (entry->d_type == DT_REG) // filter files
         {
             // cout << "Files : " << entry->d_name << endl; // test
             bridge = entry->d_name;
@@ -53,9 +54,11 @@ int main()
         entry = readdir(dir);
     }
     closedir(dir);
+
     folders = alphabaticalSorting(folders);   // sorting (by defualt false)
     files = alphabaticalSorting(files, true); // sorting (adding true to make it reverse)
-    for (string x : folders)                  // printing
+
+    for (string x : folders) // printing
     {
         cout << "Folders: " << x << endl;
     }
