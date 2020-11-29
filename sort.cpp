@@ -41,14 +41,14 @@ int main()
         {
             // cout << "Folders: " << entry->d_name << endl; // test
             bridge = entry->d_name;
-            transform(bridge.begin(), bridge.end(), bridge.begin(), ::tolower); // to make the string unsenstive
+            transform(bridge.begin(), bridge.end(), bridge.begin(), ::tolower); // to make the string insensitive
             folders.push_back(bridge);
         }
         if (entry->d_type == DT_REG) // filter files
         {
             // cout << "Files : " << entry->d_name << endl; // test
             bridge = entry->d_name;
-            transform(bridge.begin(), bridge.end(), bridge.begin(), ::tolower); // to make the string unsenstive
+            transform(bridge.begin(), bridge.end(), bridge.begin(), ::tolower); // to make the string insensitive
             files.push_back(bridge);
         }
         entry = readdir(dir);
