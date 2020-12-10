@@ -57,14 +57,23 @@ int main()
 
     folders = alphabaticalSorting(folders);   // sorting (by defualt false)
     files = alphabaticalSorting(files, true); // sorting (adding true to make it reverse)
-
+    int i = 1,
+        j = 1;
+    cout << endl;
+    cout << "         FOLDERS         " << endl;
+    cout << endl;
     for (string x : folders) // printing
     {
-        cout << "Folders: " << x << endl;
+        cout << i << ". " << x << endl;
+        i++;
     }
+    cout << endl;
+    cout << "         FILES         " << endl;
+    cout << endl;
     for (string x : files) // printing
     {
-        cout << "Files: " << x << endl;
+        cout << j << ". " << x << endl;
+        j++;
     }
     return 0;
 }
